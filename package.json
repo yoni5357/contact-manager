@@ -1,0 +1,20 @@
+{
+  "name": "contact-manager",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoni5357/contact-manager.git"
+  },
+  "author": "Tomer And Yoni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yoni5357/contact-manager/issues"
+  },
+  "homepage": "https://github.com/yoni5357/contact-manager#readme",
+  "description": ""
+}
