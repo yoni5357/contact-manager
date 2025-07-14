@@ -30,3 +30,28 @@ function validatePhone(phone){
     }
 }
 
+export default function validateParams(params){
+    if(!params.action){
+        throw new Error(`Action is required`)
+    }
+    validateAction(params.action)
+
+    if(params.action === "add"){
+        if(!params.cname){
+            throw new Error(`Contact name is required for add action`)
+        }
+        if(!params.email){
+            throw new Error(`Email is required for add action`)
+        }
+        validateEmail(params.email)
+
+        if(!params.phone){
+            throw new Error(`Phone number is required for add action`)
+        }
+        validatePhone(params.phone)
+    } else if (params.action === "search" || params.action === "delete") {
+        if(!params.cname){
+            throw new Error(`Contact name is required for ${params.action} action`)
+        }
+    }
+}
