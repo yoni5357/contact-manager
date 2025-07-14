@@ -1,3 +1,5 @@
+import { getFileData } from "./utils/fileUtils.js"
+
 const params = {
     action: process.argv[2],
     cname: process.argv[3],
@@ -9,3 +11,5 @@ const params = {
 
 //validate params
 //validate file
+const f = getFileData();
+console.log(f);
