@@ -6,7 +6,7 @@ export function updateFile(data) {
     // TODO: add error handling
     const dataJson = JSON.stringify(data);
     fs.writeFileSync('contacts.json', dataJson);
-    console.log("✔ Contacts saved to contacts.json")
+    // console.log("✔ Contacts saved to contacts.json")
 }
 
 export function getFileData() {

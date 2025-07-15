@@ -24,7 +24,7 @@ export function deleteContact(contacts, email) {
     if (removeIndex < 0) {
         throw Error('❌ Email does not exist')
     }
-    console.log(console.log('🔥 Contact removed: ', contacts[removeIndex].cname));
+    console.log('🔥 Contact removed: ', contacts[removeIndex].cname);
     contacts.splice(removeIndex, 1)
 }
 
