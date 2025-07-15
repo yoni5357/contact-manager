@@ -15,7 +15,7 @@ export function addContact(contacts, newContact) {
     }
 
     contacts.push(newContact);
-    console.log('➕ Contact added: ', newContact.name);
+    console.log('➕ Contact added: ', newContact.cname);
 }
 
 export function deleteContact(contacts, email) {
@@ -23,7 +23,7 @@ export function deleteContact(contacts, email) {
     if (removeIndex < 0) {
         throw Error('❌ Email does not exist')
     }
-    console.log(console.log('🔥 Contact removed: ', contacts[removeIndex].name));
+    console.log(console.log('🔥 Contact removed: ', contacts[removeIndex].cname));
     contacts.splice(removeIndex, 1)
 }
 
@@ -34,7 +34,7 @@ function listContacts(contacts) {
 }
 
 export function searchContacts(contacts, query) {
-    const filteredContacts = contacts.filter(contact => contact.name.includes(query) || contact.email.includes(query));
+    const filteredContacts = contacts.filter(contact => contact.cname.includes(query) || contact.email.includes(query));
 
     console.log(`=== Search Results for "${query}" ===`);
 
