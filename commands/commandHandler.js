@@ -1,4 +1,4 @@
-import { printContacts } from "../services/services";
+import { findIndexByEmail, printContacts } from "../services/services";
 import { updateFile } from "../utils/fileUtils";
 
 //add, list, search, delete, help functions
@@ -10,15 +10,22 @@ import { updateFile } from "../utils/fileUtils";
 // --Edit contacts--
 
 function addContact(contacts, newContact) {
-    // Todo: Add email exists validation
+    if (findIndexByEmail(contacts, newContact.email) >= 0) {
+        throw Error('❌ Email already exists');
+    }
+
     contacts.push(newContact);
-    console.log('Contact added: ', newContact.name);
+    console.log('➕ Contact added: ', newContact.name);
     return true;    
 }
 
 function removeContact(contacts, email) {
-    // Todo: Add email exists validation
-    
+    const removeIndex = findIndexByEmail(contacts, email);
+    if (removeIndex < 0) {
+        throw Error('❌ Email does not exist')
+    }
+    console.log(console.log('🔥 Contact removed: ', contacts[removeIndex].name));
+    contacts.splice(removeIndex, 1)        
 }
 
 // -- Show Contacts --
