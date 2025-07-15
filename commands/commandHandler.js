@@ -28,7 +28,7 @@ export function deleteContact(contacts, email) {
 }
 
 // -- Show Contacts --
-function listContacts(contacts) {
+export function listContacts(contacts) {
     console.log('=== All Contacts ===');
     printContacts(contacts);
 }
