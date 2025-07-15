@@ -67,6 +67,7 @@ export default function validateParams(params) {
         }
     }
     else if (params.command === 'delete') {
-        if (!params.email) throw new Error(`Contact email is required for ${params.command} command`)
+        if (!params.cname) throw new Error(`Contact email is required for ${params.command} command`)
+            validateEmail(params.cname);
     }
 }
