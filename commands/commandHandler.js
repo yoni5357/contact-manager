@@ -24,11 +24,23 @@ function removeContact(contacts, email) {
         throw Error('❌ Email does not exist')
     }
     console.log(console.log('🔥 Contact removed: ', contacts[removeIndex].name));
-    contacts.splice(removeIndex, 1)        
+    contacts.splice(removeIndex, 1)
 }
 
 // -- Show Contacts --
 function listContacts(contacts) {
     console.log('=== All Contacts ===');
-    printContacts(contacts) ;
+    printContacts(contacts);
+}
+
+function searchContacts(contacts, query) {
+    const filteredContacts = contacts.filter(contact => contact.name.includes(query) || contact.email.includes(query));
+
+    console.log(`=== Search Results for "${query}" ===`);
+
+    if (filteredContacts.length > 0) {
+        printContacts(filteredContacts);
+    }
+    else console.log(`No contacts found matching "${query}"`);
+    
 }
