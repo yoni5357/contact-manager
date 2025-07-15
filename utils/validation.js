@@ -1,10 +1,10 @@
 //validate each argument
 //add validate all args function
 
-function validateAction(command){
+function validateCommand(command){
     let commandSet = new Set(["add", "list", "search", "delete", "help"])
     if(!command){
-        throw new Error(`Action is required`)
+        throw new Error(`Command is required`)
     }
     command.toLowerCase()
     if(!commandSet.has(command)){
@@ -13,13 +13,19 @@ function validateAction(command){
 }
 
 function validateEmail(email){
-    let parsedEmail = new Set(email.split(''))
-    if(!parsedEmail.has("@")){
+    if(!email.includes('@')){
         throw new Error(`Email must contain @ symbol`)
     }
-    if(!parsedEmail.has(".")){
+    if(!email.includes('.')){
         throw new Error(`Email must contain a . symbol`)
     }
+    // let parsedEmail = new Set(email.split(''))
+    // if(!parsedEmail.has("@")){
+    //     throw new Error(`Email must contain @ symbol`)
+    // }
+    // if(!parsedEmail.has(".")){
+    //     throw new Error(`Email must contain a . symbol`)
+    // }
     if(email.length < 5){
         throw new Error(`Email must be at least 5 characters long`)
     }
@@ -43,34 +49,27 @@ function validateName(name){
 
 export default function validateParams(params){
 
-    validateAction(params.action)
+    validateCommand(params.command)
 
-    if(params.action === "add"){
+    if(params.command === "add"){
         if(!params.cname){
-            throw new Error(`Contact name is required for add action`)
+            throw new Error(`Contact name is required for add command`)
         }
         validateName(params.cname)
 
         if(!params.email){
-            throw new Error(`Email is required for add action`)
+            throw new Error(`Email is required for add command`)
         }
         validateEmail(params.email)
 
         if(!params.phone){
-            throw new Error(`Phone number is required for add action`)
+            throw new Error(`Phone number is required for add command`)
         }
         validatePhone(params.phone)
 
-    } else if (params.action === "search" || params.action === "delete") {
+    } else if (params.command === "search" || params.command === "delete") {
         if(!params.length < 2){
-            throw new Error(`Contact name is required for ${params.action} action`)
+            throw new Error(`Contact name is required for ${params.command} command`)
         }
-    }
-}
-
-export function emailExists(contacts, email){
-    let filteredContacts = contacts.filter((contact) => contact.email === email)
-    if(!filteredContacts.lenfth){
-        throw new Error("Contact with this email already exists")
     }
 }
