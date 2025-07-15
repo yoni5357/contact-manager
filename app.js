@@ -1,3 +1,5 @@
+import { getFileData, updateFile } from "./utils/fileUtils.js"
+
 const params = {
     action: process.argv[2],
     cname: process.argv[3],
