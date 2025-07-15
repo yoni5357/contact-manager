@@ -1,5 +1,6 @@
 import { getFileData, updateFile } from "./utils/fileUtils.js"
 import validateParams from "./utils/validation.js"
+import{addContact, listContacts, searchContacts, deleteContact, displayHelp} from "./commands/commandHandler.js"
 
 const params = {
     command: process.argv[2],
@@ -13,10 +14,12 @@ function run(){
         validateParams(params)
     } catch(err){
         console.log(`❌ Error: ${err.message}`)
+        return
     }
 
     if(params.command === "help"){
         displayHelp()
+        return
     }
 
     let contacts = getFileData()
