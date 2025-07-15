@@ -1,3 +1,4 @@
+import { printContacts } from "../services/services";
 import { updateFile } from "../utils/fileUtils";
 
 //add, list, search, delete, help functions
@@ -23,7 +24,5 @@ function removeContact(contacts, email) {
 // -- Show Contacts --
 function listContacts(contacts) {
     console.log('=== All Contacts ===');
-    for (let i in contacts) {
-        console.log(`${i}. ${contacts[i].name} - ${contacts[i].email} - ${contacts[i].phone}`);        
-    }    
+    printContacts(contacts) ;
 }
