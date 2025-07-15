@@ -1,4 +1,4 @@
-function findEmail(data, email) {
+export function findIndexByEmail(data, email) {
     for (i in data) {
         if (data[i].email === email) return i;
     }
