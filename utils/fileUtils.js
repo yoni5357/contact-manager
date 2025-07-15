@@ -22,7 +22,7 @@ export function getFileData() {
     } catch (err) {
         if (err.code === 'ENOENT') { // File now found
             console.log('❌ Could not find contacts.json file, creating new file...');
-            return {};
+            return [];
         }
         else { //Unknown error
             console.log('fs Error: ', err);
