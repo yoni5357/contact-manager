@@ -27,10 +27,10 @@ function run(){
             updateFile(contacts)
             break;
         case "list":
-            list(contacts)
+            listContacts(contacts)
             break;
         case "search":
-            search(contacts, params.cname)
+            searchContacts(contacts, params.cname)
             break;
         case "delete":
             deleteContact(contacts, params.cname)
