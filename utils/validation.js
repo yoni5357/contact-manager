@@ -50,8 +50,10 @@ export default function validateParams(params){
         }
         validatePhone(params.phone)
     } else if (params.action === "search" || params.action === "delete") {
-        if(!params.cname){
+        if(!params.length < 2){
             throw new Error(`Contact name is required for ${params.action} action`)
         }
     }
 }
+
+validateAction()
