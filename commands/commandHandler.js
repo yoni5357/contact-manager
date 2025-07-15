@@ -9,9 +9,15 @@ import { updateFile } from "../utils/fileUtils";
 // --Edit contacts--
 
 function addContact(contacts, newContact) {
+    // Todo: Add email exists validation
     contacts.push(newContact);
     console.log('Contact added: ', newContact.name);
     return true;    
+}
+
+function removeContact(contacts, email) {
+    // Todo: Add email exists validation
+    
 }
 
 // -- Show Contacts --
