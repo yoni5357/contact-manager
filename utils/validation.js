@@ -60,10 +60,17 @@ export default function validateParams(params){
             throw new Error(`Phone number is required for add action`)
         }
         validatePhone(params.phone)
-        
+
     } else if (params.action === "search" || params.action === "delete") {
         if(!params.length < 2){
             throw new Error(`Contact name is required for ${params.action} action`)
         }
+    }
+}
+
+export function emailExists(contacts, email){
+    let filteredContacts = contacts.filter((contact) => contact.email === email)
+    if(!filteredContacts.lenfth){
+        throw new Error("Contact with this email already exists")
     }
 }
