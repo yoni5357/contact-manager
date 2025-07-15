@@ -1,5 +1,5 @@
 export function findIndexByEmail(data, email) {
-    for (i in data) {
+    for (let i in data) {
         if (data[i].email === email) return i;
     }
     return -1;
