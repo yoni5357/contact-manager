@@ -19,13 +19,6 @@ function validateEmail(email){
     if(!email.includes('.')){
         throw new Error(`Email must contain a . symbol`)
     }
-    // let parsedEmail = new Set(email.split(''))
-    // if(!parsedEmail.has("@")){
-    //     throw new Error(`Email must contain @ symbol`)
-    // }
-    // if(!parsedEmail.has(".")){
-    //     throw new Error(`Email must contain a . symbol`)
-    // }
     if(email.length < 5){
         throw new Error(`Email must be at least 5 characters long`)
     }
