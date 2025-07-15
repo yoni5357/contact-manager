@@ -4,7 +4,7 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
     "url": "https://github.com/yoni5357/contact-manager/issues"
   },
   "homepage": "https://github.com/yoni5357/contact-manager#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "jest": "^30.0.4"
+  }
 }
