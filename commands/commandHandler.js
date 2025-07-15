@@ -18,7 +18,7 @@ export function addContact(contacts, newContact) {
     console.log('➕ Contact added: ', newContact.name);
 }
 
-export function removeContact(contacts, email) {
+export function deleteContact(contacts, email) {
     const removeIndex = findIndexByEmail(contacts, email);
     if (removeIndex < 0) {
         throw Error('❌ Email does not exist')
