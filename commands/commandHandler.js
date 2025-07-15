@@ -1,5 +1,5 @@
-import { findIndexByEmail, printContacts } from "../services/services";
-import { updateFile } from "../utils/fileUtils";
+import { findIndexByEmail, printContacts } from "../services/services.js";
+import { updateFile } from "../utils/fileUtils.js";
 
 //add, list, search, delete, help functions
 
@@ -9,7 +9,7 @@ import { updateFile } from "../utils/fileUtils";
 
 // --Edit contacts--
 
-function addContact(contacts, newContact) {
+export function addContact(contacts, newContact) {
     if (findIndexByEmail(contacts, newContact.email) >= 0) {
         throw Error('❌ Email already exists');
     }
@@ -18,7 +18,7 @@ function addContact(contacts, newContact) {
     console.log('➕ Contact added: ', newContact.name);
 }
 
-function removeContact(contacts, email) {
+export function removeContact(contacts, email) {
     const removeIndex = findIndexByEmail(contacts, email);
     if (removeIndex < 0) {
         throw Error('❌ Email does not exist')
@@ -33,7 +33,7 @@ function listContacts(contacts) {
     printContacts(contacts);
 }
 
-function searchContacts(contacts, query) {
+export function searchContacts(contacts, query) {
     const filteredContacts = contacts.filter(contact => contact.name.includes(query) || contact.email.includes(query));
 
     console.log(`=== Search Results for "${query}" ===`);
@@ -42,5 +42,16 @@ function searchContacts(contacts, query) {
         printContacts(filteredContacts);
     }
     else console.log(`No contacts found matching "${query}"`);
-    
+
+}
+
+// Other
+export function displayHelp() {
+    console.log('Usage: node app.js [command] [arguments]\n');
+    console.log('Commands: ');
+    console.log(`  add "name" "email" "phone"  - Add a new contact
+  list                        - List all contacts
+  search "query"              - Search contacts by name or email
+  delete "email"              - Delete contact by email
+  help                        - Show this help message`);
 }
