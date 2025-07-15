@@ -14,8 +14,9 @@ export function addContact(contacts, newContact) {
         throw Error('❌ Email already exists');
     }
 
+    delete newContact['command'];
     contacts.push(newContact);
-    console.log('➕ Contact added: ', newContact.name);
+    console.log('➕ Contact added: ', newContact.cname);
 }
 
 export function deleteContact(contacts, email) {
