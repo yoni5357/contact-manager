@@ -13,12 +13,14 @@ export function getFileData() {
 
     try {
         // File found
-        const data = fs.readFileSync('contacts.json', {encoding: 'utf-8', flag: 'r'})
-        console.log('✔ Found contacts.json file');
-        return JSON.parse(data)
+        console.log('Loading contacts.json...');        
+        const file = fs.readFileSync('contacts.json', {encoding: 'utf-8', flag: 'r'})
+        const data = JSON.parse(file)
+        console.log(`✔ Loaded ${data.length} contacts`);
+        return data;
     } catch (err) {
         if (err.code === 'ENOENT') { // File now found
-            console.log('❌ Could not find contacts.json file, creating new one...');
+            console.log('❌ Could not find contacts.json file, creating new file...');
             return {};
         }
         else { //Unknown error
