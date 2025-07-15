@@ -3,6 +3,9 @@
 
 function validateAction(command){
     let commandSet = new Set(["add", "list", "search", "delete", "help"])
+    if(!command){
+        throw new Error(`Action is required`)
+    }
     command.toLowerCase()
     if(!commandSet.has(command)){
         throw new Error(`Unknown command ${command}`)
@@ -17,7 +20,9 @@ function validateEmail(email){
     if(!parsedEmail.has(".")){
         throw new Error(`Email must contain a . symbol`)
     }
-    //TODO: check that email contains more than just the @ and . symbols
+    if(email.length < 5){
+        throw new Error(`Email must be at least 5 characters long`)
+    }
 }
 
 function validatePhone(phone){
@@ -30,16 +35,22 @@ function validatePhone(phone){
     }
 }
 
-export default function validateParams(params){
-    if(!params.action){
-        throw new Error(`Action is required`)
+function validateName(name){
+    if(!/^[a-zA-Z\s]+$/.test(name)){
+        throw new Error(`Contact name must contain only letters and spaces`)
     }
+}
+
+export default function validateParams(params){
+
     validateAction(params.action)
 
     if(params.action === "add"){
         if(!params.cname){
             throw new Error(`Contact name is required for add action`)
         }
+        validateName(params.cname)
+
         if(!params.email){
             throw new Error(`Email is required for add action`)
         }
@@ -49,11 +60,10 @@ export default function validateParams(params){
             throw new Error(`Phone number is required for add action`)
         }
         validatePhone(params.phone)
+        
     } else if (params.action === "search" || params.action === "delete") {
         if(!params.length < 2){
             throw new Error(`Contact name is required for ${params.action} action`)
         }
     }
 }
-
-validateAction()
