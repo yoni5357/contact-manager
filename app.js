@@ -26,8 +26,13 @@ function run(){
 
     switch(params.command){
         case "add":
-            addContact(contacts, params)
-            updateFile(contacts)
+            try {
+                addContact(contacts, params)
+                updateFile(contacts)
+            } catch (err) {
+                console.log(err.message);
+                return;
+            }
             break;
         case "list":
             listContacts(contacts)
@@ -36,8 +41,13 @@ function run(){
             searchContacts(contacts, params.cname)
             break;
         case "delete":
-            deleteContact(contacts, params.cname)
-            updateFile(contacts)
+            try {
+                deleteContact(contacts, params.cname)
+                updateFile(contacts)
+            } catch (err) {
+                console.log(err.message);
+                return;
+            }
             break;
     }
 }

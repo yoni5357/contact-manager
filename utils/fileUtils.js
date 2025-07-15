@@ -16,7 +16,7 @@ export function getFileData() {
         // File found
         console.log('Loading contacts.json...');        
         const file = fs.readFileSync('contacts.json', {encoding: 'utf-8', flag: 'r'})
-        const data = JSON.parse(file)
+        const data = JSON.parse(file, null, 2)
         console.log(`✔ Loaded ${data.length} contacts`);
         return data;
     } catch (err) {
