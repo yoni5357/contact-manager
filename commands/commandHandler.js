@@ -16,7 +16,6 @@ function addContact(contacts, newContact) {
 
     contacts.push(newContact);
     console.log('➕ Contact added: ', newContact.name);
-    return true;    
 }
 
 function removeContact(contacts, email) {
