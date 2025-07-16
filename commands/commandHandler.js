@@ -35,6 +35,7 @@ export function listContacts(contacts) {
 }
 
 export function searchContacts(contacts, query) {
+    query = query.toLowerCase();
     const filteredContacts = contacts.filter(contact => contact.cname.includes(query) || contact.email.includes(query));
 
     console.log(`=== Search Results for "${query}" ===`);

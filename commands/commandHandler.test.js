@@ -1,4 +1,5 @@
-import { addContact, deleteContact } from "./commandHandler"
+
+import { addContact, deleteContact, searchContacts } from "./commandHandler"
 import { mockContacts, mockParams } from "../mockData";
 
 describe('commandHandler', () => {
@@ -18,5 +19,15 @@ describe('commandHandler', () => {
     it('Should delete a contact successfully', () => {
         expect(() => {deleteContact(mockContacts, mockParams[13].email)}).not.toThrow();
         expect(mockContacts).toHaveLength(10);
+    })
+
+    // searchContact function tests
+    it('Should print out search results for a valid query', () => {
+        const consoleSpy = jest.spyOn(console, 'log');
+        searchContacts(mockContacts, mockParams[8].cname);
+        expect(consoleSpy).toHaveBeenCalledWith(`=== Search Results for "${mockParams[8].cname}" ===`);
+        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(mockContacts[8].cname));
+        
+        consoleSpy.mockRestore();
     })
 })
