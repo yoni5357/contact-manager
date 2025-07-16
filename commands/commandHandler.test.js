@@ -1,6 +1,7 @@
 
 import { addContact, deleteContact, searchContacts } from "./commandHandler"
 import { mockContacts, mockParams } from "../mockData";
+import { jest } from '@jest/globals';
 
 describe('commandHandler', () => {
     // addContact function tests
@@ -26,7 +27,11 @@ describe('commandHandler', () => {
         const consoleSpy = jest.spyOn(console, 'log');
         searchContacts(mockContacts, mockParams[8].cname);
         expect(consoleSpy).toHaveBeenCalledWith(`=== Search Results for "${mockParams[8].cname}" ===`);
-        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(mockContacts[8].cname));
+        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(mockParams[8].cname));
+
+        // Test for no results
+        searchContacts(mockContacts, 'nonexistent');
+        expect(consoleSpy).toHaveBeenCalledWith(`No contacts found matching "nonexistent"`);
         
         consoleSpy.mockRestore();
     })
