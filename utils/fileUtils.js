@@ -3,10 +3,13 @@ import fs from 'fs';
 //read, write, parse 
 
 export function updateFile(data) {
-    // TODO: add error handling
-    const dataJson = JSON.stringify(data);
-    fs.writeFileSync('contacts.json', dataJson);
-    // console.log("✔ Contacts saved to contacts.json")
+    try{
+        const dataJson = JSON.stringify(data);
+        fs.writeFileSync('contacts.json', dataJson);
+        console.log("✔ Contacts saved to contacts.json")
+    }catch(err) {
+        throw new Error('Failed to save contacts');
+    }
 }
 
 export function getFileData() {
