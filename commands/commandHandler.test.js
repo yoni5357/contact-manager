@@ -1,4 +1,4 @@
-import { addContact } from "./commandHandler"
+import { addContact, deleteContact } from "./commandHandler"
 import { mockContacts, mockParams } from "../mockData";
 
 describe('commandHandler', () => {
@@ -9,5 +9,14 @@ describe('commandHandler', () => {
     it('Should add a new contact successfully', () => {
         expect(() => {addContact(mockContacts, mockParams[0])}).not.toThrow();
         expect(mockContacts).toHaveLength(11);
+    })
+
+    // deleteContact function tests
+    it('Should throw an error if email does not exist', () => {
+        expect(() => {deleteContact(mockContacts, mockParams[11])}).toThrow('❌ Email does not exist');
+    })
+    it('Should delete a contact successfully', () => {
+        expect(() => {deleteContact(mockContacts, mockParams[13].email)}).not.toThrow();
+        expect(mockContacts).toHaveLength(10);
     })
 })

@@ -27,4 +27,6 @@ export const mockParams = [
     {command:"search", cname: 'sarah.lee@example.com'}, // valid: search by email
     // Command Handler Data
     {command:"add", cname: 'john', email: 'john.doe@gmail.com', phone: '0541234567'}, // Email exists
+    {command:"delete", cname: 'john', email: 'john.doe@gmail.com', phone: '0541234567'}, // Email exists
+    {command:"delete", cname: 'john', email: 'nonexisting@gmail.com', phone: '0541234567'}, // Email does not exist
 ];
