@@ -5,7 +5,7 @@ export function findIndexByEmail(data, email) {
     return -1;
 }
 
-function formatContact(contact) {
+export function formatContact(contact) {
     return `${contact.cname} - ${contact.email} - ${contact.phone}`;        
 }
 

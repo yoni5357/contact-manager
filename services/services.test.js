@@ -1,5 +1,5 @@
 import { mockContacts } from "../mockData.js";
-import { findIndexByEmail } from "./services.js"
+import { findIndexByEmail, formatContact } from "./services.js"
 
 // Per module
 
@@ -12,4 +12,10 @@ describe('Services Module', () => {
         expect(findIndexByEmail(mockContacts, '')).toBe(-1);
         expect(findIndexByEmail(mockContacts, 'not@existing')).toBe(-1);
     })
+
+    it('Should format a contact like this: {contact.name} - {contact.email} - {contact.phone}', () => {
+        expect(formatContact(mockContacts[0])).toBe('John Doe - john.doe@gmail.com - 0541234567');
+        expect(formatContact(mockContacts[1])).toBe('Sarah Lee - sarah.lee@example.com - 0523456789');
+    })
+
 })
