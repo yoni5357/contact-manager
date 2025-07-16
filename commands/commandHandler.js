@@ -1,6 +1,7 @@
 import { findIndexByEmail, printContacts } from "../services/services.js";
 import { updateFile } from "../utils/fileUtils.js";
 
+
 //add, list, search, delete, help functions
 
 // All functions should get contcacts object as argument.
@@ -35,6 +36,7 @@ export function listContacts(contacts) {
 }
 
 export function searchContacts(contacts, query) {
+    query = query.toLowerCase();
     const filteredContacts = contacts.filter(contact => contact.cname.includes(query) || contact.email.includes(query));
 
     console.log(`=== Search Results for "${query}" ===`);

@@ -23,6 +23,7 @@
     "jest": "^30.0.4"
   },
   "jest": {
-    "transform": {}
+    "transform": {},
+    "testEnvironment": "node"
   }
 }
