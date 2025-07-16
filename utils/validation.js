@@ -1,5 +1,3 @@
-//validate each argument
-//add validate all args function
 
 export function validateCommand(command) {
     let commandSet = new Set(["add", "list", "search", "delete", "help"])
@@ -62,7 +60,7 @@ export default function validateParams(params) {
 
     }
     else if (params.command === "search") {
-        if (params.length < 2) {
+        if (params.length < 2 || !params.cname) {
             throw new Error(`Contact name or email is required for ${params.command} command`)
         }
     }
