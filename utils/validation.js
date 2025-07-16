@@ -1,7 +1,5 @@
-//validate each argument
-//add validate all args function
 
-function validateCommand(command) {
+export function validateCommand(command) {
     let commandSet = new Set(["add", "list", "search", "delete", "help"])
     if (!command) {
         throw new Error(`Command is required`)
@@ -12,7 +10,7 @@ function validateCommand(command) {
     }
 }
 
-function validateEmail(email) {
+export function validateEmail(email) {
     if (!email.includes('@')) {
         throw new Error(`Email must contain @ symbol`)
     }
@@ -24,7 +22,7 @@ function validateEmail(email) {
     }
 }
 
-function validatePhone(phone) {
+export function validatePhone(phone) {
     if (phone.length < 10 || phone.length > 15) {
         throw new Error(`Phone number must be between 10 and 15 characters long`)
     }
@@ -34,7 +32,7 @@ function validatePhone(phone) {
     }
 }
 
-function validateName(name) {
+export function validateName(name) {
     if (!/^[a-zA-Z\s]+$/.test(name)) {
         throw new Error(`Contact name must contain only letters and spaces`)
     }
@@ -62,7 +60,7 @@ export default function validateParams(params) {
 
     }
     else if (params.command === "search") {
-        if (params.length < 2) {
+        if (params.length < 2 || !params.cname) {
             throw new Error(`Contact name or email is required for ${params.command} command`)
         }
     }
