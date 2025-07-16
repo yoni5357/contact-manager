@@ -1,4 +1,4 @@
-export const mockContacts = [
+export const mockContacts =[
     { cname: 'John Doe', email: 'john.doe@gmail.com', phone: '0541234567' },
     { cname: 'Sarah Lee', email: 'sarah.lee@example.com', phone: '0523456789' },
     { cname: 'Mike Cohen', email: 'mike.cohen@example.com', phone: '0539876543' },
@@ -10,8 +10,6 @@ export const mockContacts = [
     { cname: 'Eve Silver', email: 'eve.silver@gmail.com', phone: '0551234567' },
     { cname: 'Bob Levy', email: 'bob.levy@example.com', phone: '0501234567' },
 ];
-
-
 
 export const mockParams = [
     {command:"add", cname: 'john', email: 'john@gmail.com', phone: '0541234567'},
